@@ -28,12 +28,6 @@ import nice.services.UserService;
 public class UsersController {
 
     @Autowired
-    private TodoListService todoListService;
-    
-    @Autowired
-    private TaskService taskService;
-    
-    @Autowired
     private UserService userService;
     
     @Autowired
@@ -221,48 +215,4 @@ public class UsersController {
         return matchedTask;
     }
     
-    /*
-    @RequestMapping(value="/todolists", method=RequestMethod.GET)
-    @ResponseBody
-    Iterable<ToDoList> getAllTodoLists() {
-        return todoListService.findAll();
-    }
-    
-    @RequestMapping(value="/todolists/{id}", method=RequestMethod.GET)
-    @ResponseBody
-    Iterable<Task> getTodoLists(@PathVariable("id") Long id) {
-        ToDoList todoList = todoListService.findById(id);
-        
-        return todoList.getTasks();
-    }
-    
-    @RequestMapping(value="/todolists", method=RequestMethod.DELETE)
-    @ResponseBody
-    void deleteAllTodoLists() {
-    	todoListService.deleteAllTodoLists();  	
-    	
-    }
-   
-    @RequestMapping(value="/todolists/{id}/tasks/{ids}", method=RequestMethod.POST)
-    @ResponseBody
-    ToDoList addTasks(@PathVariable Long listId, @PathVariable List<Long> taskIds) {
-    	ToDoList todoList = todoListService.findById(listId);
-    	
-    	if (todoList != null) {
-    		Set<Task> tasks = new HashSet<>();
-    		for (Long taskId: taskIds) {
-    			Task task = taskService.findById(taskId);
-    			if (task!= null) {
-    				tasks.add(task);
-    			}
-    		}
-    		
-    		if (!tasks.isEmpty()) {
-    			todoList.setTasks(tasks);
-    		}
-    	}
-       
-    	return todoList;
-    }
-    */
 }
